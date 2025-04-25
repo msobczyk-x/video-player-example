@@ -9,13 +9,16 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.msobczykxx.videoplayerexample"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [],
+      "package": "com.msobczykxx.videoplayerexample"
     },
     "web": {
       "bundler": "metro",
@@ -32,7 +35,23 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "buildToolsVersion": "35.0.0"
+          },
+          "ios": {
+            "deploymentTarget": "16.6"
+          }
+        }
+      ],
+      "react-native-video",
+      "react-native-edge-to-edge",
+      "expo-build-properties"
     ],
     "experiments": {
       "typedRoutes": true
