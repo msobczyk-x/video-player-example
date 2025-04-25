@@ -4,7 +4,6 @@
     "": {
       "name": "video-player-example",
       "dependencies": {
-        "@biomejs/biome": "^1.9.4",
         "@expo/vector-icons": "^14.0.2",
         "@react-navigation/bottom-tabs": "^7.2.0",
         "@react-navigation/native": "^7.0.14",
@@ -24,7 +23,7 @@
         "expo-symbols": "~0.2.2",
         "expo-system-ui": "~4.0.9",
         "expo-web-browser": "~14.0.2",
-        "lefthook": "^1.11.11",
+        "ky": "^1.8.1",
         "react": "18.3.1",
         "react-dom": "18.3.1",
         "react-native": "0.76.9",
@@ -44,11 +43,13 @@
       },
       "devDependencies": {
         "@babel/core": "^7.25.2",
+        "@biomejs/biome": "^1.9.4",
         "@types/jest": "^29.5.12",
         "@types/react": "~18.3.12",
         "@types/react-test-renderer": "^18.3.0",
         "jest": "^29.2.1",
         "jest-expo": "~52.0.6",
+        "lefthook": "^1.11.11",
         "react-test-renderer": "18.3.1",
         "typescript": "^5.3.3",
       },
@@ -1284,6 +1285,8 @@
     "kind-of": ["kind-of@6.0.3", "", {}, "sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw=="],
 
     "kleur": ["kleur@3.0.3", "", {}, "sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w=="],
+
+    "ky": ["ky@1.8.1", "", {}, "sha512-7Bp3TpsE+L+TARSnnDpk3xg8Idi8RwSLdj6CMbNWoOARIrGrbuLGusV0dYwbZOm4bB3jHNxSw8Wk/ByDqJEnDw=="],
 
     "lefthook": ["lefthook@1.11.11", "", { "optionalDependencies": { "lefthook-darwin-arm64": "1.11.11", "lefthook-darwin-x64": "1.11.11", "lefthook-freebsd-arm64": "1.11.11", "lefthook-freebsd-x64": "1.11.11", "lefthook-linux-arm64": "1.11.11", "lefthook-linux-x64": "1.11.11", "lefthook-openbsd-arm64": "1.11.11", "lefthook-openbsd-x64": "1.11.11", "lefthook-windows-arm64": "1.11.11", "lefthook-windows-x64": "1.11.11" }, "bin": { "lefthook": "bin/index.js" } }, "sha512-TZAbpT13+grDIMwmdvGCEVLsJCwRDCcQjUyeoUFUDJZyc9E4Oztjo0cwaLX9CMGF68ISmj1arRg6KgvU2e/oEg=="],
 
