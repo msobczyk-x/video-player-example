@@ -1,15 +1,20 @@
 import { StyleSheet } from "react-native-unistyles";
 
-const lightTheme = {
+const mainTheme = {
   colors: {
-    primary: "#ff1ff4",
-    secondary: "#1ff4ff",
+    primary: "#2B2D42",
+    secondary: "#8D99AE",
+    secondaryBackground: "#8D99AE",
+    whiteBackground: "#FFFFFF",
+    textPrimary: "#2B2D42",
+    textSecondary: "#8D99AE",
+    textWhite: "#FFFFFF",
   },
   gap: (v: number) => v * 8,
 };
 
 const appThemes = {
-  light: lightTheme,
+  main: mainTheme,
 };
 
 type AppThemes = typeof appThemes;
@@ -19,8 +24,8 @@ declare module "react-native-unistyles" {
 }
 
 StyleSheet.configure({
-  settings: {
-    initialTheme: "light",
-  },
   themes: appThemes,
+  settings: {
+    initialTheme: "main",
+  },
 });

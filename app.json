@@ -70,7 +70,7 @@
             "buildToolsVersion": "35.0.0"
           },
           "ios": {
-            "deploymentTarget": "17"
+            "deploymentTarget": "16.6"
           }
         }
       ],
