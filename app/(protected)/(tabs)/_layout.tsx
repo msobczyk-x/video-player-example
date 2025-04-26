@@ -1,7 +1,7 @@
 import { Tabs } from "expo-router";
 import React from "react";
 import { Platform, Text, View } from "react-native";
-import { HapticTab } from "@/components/HapticTab";
+import { HapticTab } from "@/components/navigation/HapticTab";
 import { Home, Search } from "@/components/icons";
 import { useUnistyles, UnistylesRuntime } from "react-native-unistyles";
 import { Typography } from "@/components/ui";

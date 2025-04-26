@@ -11,6 +11,7 @@ const mainTheme = {
     textPrimary: "#2B2D42",
     textSecondary: "#8D99AE",
     textWhite: "#FFFFFF",
+    textPlaceholder: "rgba(43, 45, 66, 0.6)",
   },
   fonts: {
     labelSmall: (isBold: boolean) => ({
@@ -78,7 +79,7 @@ const mainTheme = {
     }),
   },
   padding: (v: number) => v * 8,
-  gap: (v: number) => v * 10,
+  gap: (v: number) => v * 8,
 };
 
 const appThemes = {
