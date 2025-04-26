@@ -19,15 +19,20 @@ export default function HomeScreen() {
     [videoCategoriesConfig],
   );
 
+  const headerComponent = useMemo(
+    () => (
+      <View style={{ paddingBottom: theme.padding(3) }}>
+        <HomeHeader />
+      </View>
+    ),
+    [],
+  );
+
   return (
     <View style={styles.container}>
       <FlatList
         data={categoriesData}
-        ListHeaderComponent={() => (
-          <View style={{ paddingBottom: theme.padding(3) }}>
-            <HomeHeader />
-          </View>
-        )}
+        ListHeaderComponent={() => headerComponent}
         contentContainerStyle={{ paddingBottom: theme.padding(3) }}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         renderItem={({ item }) => (

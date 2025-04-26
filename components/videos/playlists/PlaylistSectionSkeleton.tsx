@@ -1,7 +1,6 @@
 import { StyleSheet } from "react-native-unistyles";
 import { View, ScrollView } from "react-native";
 import React from "react";
-import { Typography } from "@/components/ui";
 import PlaylistItemSkeleton from "./PlaylistItemSkeleton";
 
 export default function PlaylistSectionSkeleton() {
@@ -14,7 +13,7 @@ export default function PlaylistSectionSkeleton() {
       style={styles.scrollView}
     >
       {Array.from({ length: 5 }).map((_, index) => (
-        <View key={`skeleton-${index}`} style={styles.itemContainer}>
+        <View key={`skeleton-${index}`}>
           <PlaylistItemSkeleton />
         </View>
       ))}
@@ -32,8 +31,5 @@ const styles = StyleSheet.create((theme) => ({
   scrollContent: {
     paddingLeft: theme.padding(3),
     gap: theme.gap(3),
-  },
-  itemContainer: {
-    // Add any additional styling for each item container
   },
 }));

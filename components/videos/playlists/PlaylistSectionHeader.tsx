@@ -1,4 +1,5 @@
 import { Typography } from "@/components/ui";
+import { useSearchActions } from "@/services/search/provider";
 import { useRouter } from "expo-router";
 import { TouchableOpacity, View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
@@ -12,8 +13,10 @@ export default function PlaylistSectionHeader({
   searchQuery,
 }: PlaylistSectionHeaderProps) {
   const router = useRouter();
+  const { setQuery } = useSearchActions();
   const handleShowMore = () => {
     router.navigate("/(protected)/(tabs)/search");
+    setQuery(searchQuery ?? title);
   };
 
   return (

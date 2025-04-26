@@ -10,7 +10,7 @@ import Animated, {
   cancelAnimation,
 } from "react-native-reanimated";
 
-export default function PlaylistItemSkeleton() {
+export default function VideoListItemSkeleton() {
   const opacity = useSharedValue(0.3);
 
   useEffect(() => {
@@ -35,9 +35,10 @@ export default function PlaylistItemSkeleton() {
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.thumbnailContainer, animatedStyle]} />
-      <View style={styles.textsWrapper}>
+      <Animated.View style={[styles.thumbnail, animatedStyle]} />
+      <View style={styles.textsContainer}>
         <Animated.View style={[styles.titleSkeleton, animatedStyle]} />
+        <Animated.View style={[styles.descriptionSkeleton, animatedStyle]} />
         <Animated.View style={[styles.dateSkeleton, animatedStyle]} />
       </View>
     </View>
@@ -46,31 +47,38 @@ export default function PlaylistItemSkeleton() {
 
 const styles = StyleSheet.create((theme) => ({
   container: {
-    flexDirection: "column",
-    gap: theme.gap(1),
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    gap: theme.gap(1.5),
   },
-  textsWrapper: {
-    flexDirection: "column",
-    gap: theme.gap(0.5),
-  },
-  thumbnailContainer: {
-    width: 180,
+  thumbnail: {
+    width: 345,
+    height: 200,
     borderRadius: theme.radius(2),
-    height: 116,
     backgroundColor: theme.colors.secondary,
   },
+  textsContainer: {
+    gap: theme.gap(1.5),
+    width: 345,
+  },
   titleSkeleton: {
-    width: 180,
+    width: "50%",
+    height: 18,
+    backgroundColor: theme.colors.secondary,
+    borderRadius: theme.radius(1),
+  },
+  descriptionSkeleton: {
+    width: "100%",
     height: 16,
     backgroundColor: theme.colors.secondary,
     borderRadius: theme.radius(1),
   },
   dateSkeleton: {
-    width: 80,
+    width: 100,
     height: 12,
-    alignSelf: "flex-end",
     backgroundColor: theme.colors.secondary,
     borderRadius: theme.radius(1),
-    marginTop: 2,
+    alignSelf: "flex-end",
   },
 }));

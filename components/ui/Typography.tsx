@@ -1,5 +1,5 @@
 import React from "react";
-import type { StyleProp, TextStyle } from "react-native";
+import type { StyleProp, TextProps, TextStyle } from "react-native";
 import { Text } from "react-native";
 import { useUnistyles } from "react-native-unistyles";
 
@@ -19,14 +19,19 @@ type TypographyProps = {
   variant?: TypographyVariant;
   isBold?: boolean;
   style?: StyleProp<TextStyle>;
-};
+} & Omit<TextProps, "style">;
 
 export default function Typography({
   children,
   variant = "bodyMedium",
   isBold = false,
   style,
+  ...props
 }: TypographyProps) {
   const { theme } = useUnistyles();
-  return <Text style={[theme.fonts[variant](isBold), style]}>{children}</Text>;
+  return (
+    <Text {...props} style={[theme.fonts[variant](isBold), style]}>
+      {children}
+    </Text>
+  );
 }
