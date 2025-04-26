@@ -1,4 +1,5 @@
 import HomeHeader from "@/components/header/HomeHeader";
+import Divider from "@/components/ui/Divider";
 import PlaylistSection from "@/components/videos/playlists/PlaylistSection";
 import { videoCategoriesConfig } from "@/config/api";
 import { useMemo } from "react";
@@ -34,7 +35,7 @@ export default function HomeScreen() {
         data={categoriesData}
         ListHeaderComponent={() => headerComponent}
         contentContainerStyle={{ paddingBottom: theme.padding(3) }}
-        ItemSeparatorComponent={() => <View style={styles.separator} />}
+        ItemSeparatorComponent={() => <Divider />}
         renderItem={({ item }) => (
           <PlaylistSection key={`category-${item.title}`} sectionData={item} />
         )}
@@ -49,10 +50,5 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: theme.colors.whiteBackground,
     paddingTop: UnistylesRuntime.insets.top + theme.padding(3),
     gap: theme.gap(3),
-  },
-  separator: {
-    height: 2,
-    backgroundColor: theme.colors.primary,
-    marginTop: theme.padding(3),
   },
 }));

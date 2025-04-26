@@ -39,14 +39,14 @@ const mainTheme = {
       fontFamily: "Poppins",
       fontSize: 12,
       fontWeight: (isBold ? 500 : 400) as TextStyle["fontWeight"],
-      lineHeight: 12,
+      lineHeight: 24,
       letterSpacing: 0.01,
     }),
     bodyMedium: (isBold: boolean) => ({
       fontFamily: "Poppins",
       fontSize: 14,
       fontWeight: (isBold ? 600 : 400) as TextStyle["fontWeight"],
-      lineHeight: 12,
+      lineHeight: 24,
       letterSpacing: 0.01,
     }),
     bodyLarge: (isBold: boolean) => ({
