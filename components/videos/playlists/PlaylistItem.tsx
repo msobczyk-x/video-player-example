@@ -1,6 +1,6 @@
-import { StyleSheet } from "react-native-unistyles";
-import { View, Image } from "react-native";
 import { Typography } from "@/components/ui";
+import { Image, View } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
 type PlaylistItemProps = {
   title: string;
   createdAt: string;

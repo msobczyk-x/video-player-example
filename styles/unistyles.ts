@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native-unistyles";
 import type { TextStyle } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
 const mainTheme = {
   colors: {
     primary: "#2B2D42",

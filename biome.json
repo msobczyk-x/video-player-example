@@ -13,8 +13,9 @@
       "recommended": true,
 
       "suspicious": {
-        "noEmptyInterface": "off",
-        "noExplicitAny": "off"
+        "noEmptyInterface": "info",
+        "noExplicitAny": "info",
+        "noArrayIndexKey": "info"
       },
       "complexity": {
         "noForEach": "off",

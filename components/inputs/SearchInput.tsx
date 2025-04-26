@@ -3,8 +3,8 @@ import { Pressable, TextInput } from "react-native";
 import { StyleSheet, useUnistyles } from "react-native-unistyles";
 import { Search } from "../icons";
 
+import { useSearchActions, useSearchQuery } from "@/services/search/provider";
 import { usePathname, useRouter } from "expo-router";
-import { useSearchQuery, useSearchActions } from "@/services/search/provider";
 
 export default function SearchInput() {
   const router = useRouter();

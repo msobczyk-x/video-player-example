@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet } from "react-native-unistyles";
 import { TouchableOpacity } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
 
 type IconButtonProps = {
   icon: React.ReactNode;

@@ -1,9 +1,9 @@
+import { AppIcon, Logo } from "@/components/icons";
+import { Button, Link, Typography } from "@/components/ui";
 import { useRouter } from "expo-router";
 import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
-import { AppIcon, Logo } from "@/components/icons";
 import { UnistylesRuntime } from "react-native-unistyles";
-import { Button, Link, Typography } from "@/components/ui";
 
 export default function LoginScreen() {
   const router = useRouter();

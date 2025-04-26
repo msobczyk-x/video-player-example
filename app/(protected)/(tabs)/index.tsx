@@ -1,13 +1,13 @@
 import HomeHeader from "@/components/header/HomeHeader";
+import PlaylistSection from "@/components/videos/playlists/PlaylistSection";
+import { videoCategoriesConfig } from "@/config/api";
+import { useMemo } from "react";
+import { FlatList, View } from "react-native";
 import {
   StyleSheet,
   UnistylesRuntime,
   useUnistyles,
 } from "react-native-unistyles";
-import { FlatList, View } from "react-native";
-import PlaylistSection from "@/components/videos/playlists/PlaylistSection";
-import { videoCategoriesConfig } from "@/config/api";
-import { useMemo } from "react";
 
 export default function HomeScreen() {
   const { theme } = useUnistyles();

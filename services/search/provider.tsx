@@ -1,13 +1,18 @@
+import { ESearchFilter } from "@/types/api/videos/search";
 import { createContext, useContext, useRef } from "react";
 import type { PropsWithChildren } from "react";
 import { createStore, useStore } from "zustand";
 
 interface SearchStoreState {
   query: string;
+  filter: ESearchFilter;
 }
 
 interface SearchStoreActions {
   setQuery: (query: string) => void;
+  setFilter: (filter: ESearchFilter) => void;
+  clearFilter: () => void;
+  clearQuery: () => void;
   clearStore: () => void;
 }
 
@@ -18,6 +23,7 @@ interface SearchSlice extends SearchStoreState {
 const createSearchStore = (initProps?: Partial<SearchStoreState>) => {
   const DEFAULT_PROPS: SearchStoreState = {
     query: "",
+    filter: ESearchFilter.LATEST,
   };
 
   return createStore<SearchSlice>()((set) => ({
@@ -27,6 +33,18 @@ const createSearchStore = (initProps?: Partial<SearchStoreState>) => {
       setQuery: (query) =>
         set(() => ({
           query,
+        })),
+      setFilter: (filter) =>
+        set(() => ({
+          filter,
+        })),
+      clearFilter: () =>
+        set(() => ({
+          filter: ESearchFilter.LATEST,
+        })),
+      clearQuery: () =>
+        set(() => ({
+          query: "",
         })),
       clearStore: () =>
         set(() => ({
@@ -42,17 +60,20 @@ export const SearchContext = createContext<SearchStore | null>(null);
 
 interface SearchProviderProps {
   initialQuery?: string;
+  initialFilter?: ESearchFilter;
 }
 
 export function SearchProvider({
   children,
   initialQuery = "",
+  initialFilter = ESearchFilter.LATEST,
 }: PropsWithChildren<SearchProviderProps>) {
   const storeRef = useRef<SearchStore>();
 
   if (!storeRef.current) {
     storeRef.current = createSearchStore({
       query: initialQuery,
+      filter: initialFilter,
     });
   }
 

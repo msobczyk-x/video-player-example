@@ -1,9 +1,9 @@
+import { useRouter } from "expo-router";
 import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
+import { Settings } from "../icons";
 import SearchInput from "../inputs/SearchInput";
 import IconButton from "../ui/IconButton";
-import { Settings } from "../icons";
-import { useRouter } from "expo-router";
 export default function HomeHeader() {
   const router = useRouter();
   return (

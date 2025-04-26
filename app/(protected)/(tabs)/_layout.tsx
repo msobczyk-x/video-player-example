@@ -1,11 +1,9 @@
+import { Home, Search } from "@/components/icons";
+import { HapticTab } from "@/components/navigation/HapticTab";
+import TabBarLabel from "@/components/navigation/TabBarLabel";
 import { Tabs } from "expo-router";
 import React from "react";
-import { Platform, Text, View } from "react-native";
-import { HapticTab } from "@/components/navigation/HapticTab";
-import { Home, Search } from "@/components/icons";
-import { useUnistyles, UnistylesRuntime } from "react-native-unistyles";
-import { Typography } from "@/components/ui";
-import TabBarLabel from "@/components/navigation/TabBarLabel";
+import { UnistylesRuntime, useUnistyles } from "react-native-unistyles";
 
 export default function TabLayout() {
   const { theme } = useUnistyles();

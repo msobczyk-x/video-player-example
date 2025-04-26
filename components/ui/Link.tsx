@@ -1,6 +1,6 @@
+import * as WebBrowser from "expo-web-browser";
 import React from "react";
 import { TouchableOpacity } from "react-native";
-import * as WebBrowser from "expo-web-browser";
 type LinkProps = {
   children: React.ReactNode;
   url: string;

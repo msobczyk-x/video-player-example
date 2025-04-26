@@ -1,15 +1,20 @@
-import SearchInput from "@/components/inputs/SearchInput";
+import SearchHeader from "@/components/header/SearchHeader";
 import VideoListItemSkeleton from "@/components/videos/VideoListItemSkeleton";
-import { FlatList, ScrollView, View } from "react-native";
-import { StyleSheet, UnistylesRuntime } from "react-native-unistyles";
+import { ScrollView, View } from "react-native";
+import {
+  StyleSheet,
+  UnistylesRuntime,
+  useUnistyles,
+} from "react-native-unistyles";
 
 export default function SearchScreen() {
+  const { theme } = useUnistyles();
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <SearchInput />
-      </View>
-      <ScrollView contentContainerStyle={{ gap: 16 }}>
+      <SearchHeader />
+      <ScrollView
+        contentContainerStyle={{ gap: 16, paddingVertical: theme.padding(3) }}
+      >
         {Array.from({ length: 5 }).map((_, index) => (
           <View key={`skeleton-${index}`}>
             <VideoListItemSkeleton />
@@ -26,12 +31,5 @@ const styles = StyleSheet.create((theme) => ({
     backgroundColor: theme.colors.whiteBackground,
     paddingHorizontal: theme.padding(3),
     paddingTop: UnistylesRuntime.insets.top + theme.padding(3),
-    paddingBottom: UnistylesRuntime.insets.bottom + theme.padding(3),
-  },
-  header: {
-    width: "100%",
-    flexDirection: "row",
-    alignItems: "center",
-    paddingBottom: theme.padding(3),
   },
 }));

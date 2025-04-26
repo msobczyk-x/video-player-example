@@ -1,6 +1,5 @@
-import { StyleSheet } from "react-native-unistyles";
-import { View } from "react-native";
 import React, { useEffect } from "react";
+import { View } from "react-native";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -9,6 +8,7 @@ import Animated, {
   withTiming,
   cancelAnimation,
 } from "react-native-reanimated";
+import { StyleSheet } from "react-native-unistyles";
 
 export default function VideoListItemSkeleton() {
   const opacity = useSharedValue(0.3);
