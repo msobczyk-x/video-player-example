@@ -38,7 +38,7 @@ const mainTheme = {
     bodySmall: (isBold: boolean) => ({
       fontFamily: "Poppins",
       fontSize: 12,
-      fontWeight: (isBold ? 600 : 400) as TextStyle["fontWeight"],
+      fontWeight: (isBold ? 500 : 400) as TextStyle["fontWeight"],
       lineHeight: 12,
       letterSpacing: 0.01,
     }),
@@ -80,6 +80,7 @@ const mainTheme = {
   },
   padding: (v: number) => v * 8,
   gap: (v: number) => v * 8,
+  radius: (v: number) => v * 8,
 };
 
 const appThemes = {
