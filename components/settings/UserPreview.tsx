@@ -1,7 +1,7 @@
-import { StyleSheet } from "react-native-unistyles";
 import { View } from "react-native";
-import { Typography } from "../ui";
+import { StyleSheet } from "react-native-unistyles";
 import AvatarPlaceholder from "../icons/AvatarPlaceholder";
+import { Typography } from "../ui";
 export default function UserPreview() {
   return (
     <View style={styles.container}>

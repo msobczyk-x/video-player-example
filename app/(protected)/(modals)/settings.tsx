@@ -1,9 +1,9 @@
-import { StyleSheet, UnistylesRuntime } from "react-native-unistyles";
 import SettingsHeader from "@/components/header/SettingsHeader";
-import { View } from "react-native";
+import NotificationOptions from "@/components/settings/NotificationOptions";
 import UserPreview from "@/components/settings/UserPreview";
 import Divider from "@/components/ui/Divider";
-import NotificationOptions from "@/components/settings/NotificationOptions";
+import { View } from "react-native";
+import { StyleSheet, UnistylesRuntime } from "react-native-unistyles";
 
 export default function SettingsScreen() {
   return (

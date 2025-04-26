@@ -1,7 +1,7 @@
 import { Switch, View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
-import { Typography } from "../ui";
 import { Clock, Notification } from "../icons";
+import { Typography } from "../ui";
 
 export default function NotificationOptions() {
   return (

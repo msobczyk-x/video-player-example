@@ -1,8 +1,8 @@
-import { StyleSheet } from "react-native-unistyles";
+import { useRouter } from "expo-router";
 import { View } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
 import { LeftArrow } from "../icons";
 import { Typography } from "../ui";
-import { useRouter } from "expo-router";
 import IconButton from "../ui/IconButton";
 
 export default function SettingsHeader() {
