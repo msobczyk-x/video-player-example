@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native-unistyles";
-
+import type { TextStyle } from "react-native";
 const mainTheme = {
   colors: {
     primary: "#2B2D42",
@@ -12,7 +12,73 @@ const mainTheme = {
     textSecondary: "#8D99AE",
     textWhite: "#FFFFFF",
   },
-  gap: (v: number) => v * 8,
+  fonts: {
+    labelSmall: (isBold: boolean) => ({
+      fontFamily: "Poppins",
+      fontSize: 10,
+      fontWeight: (isBold ? 600 : 400) as TextStyle["fontWeight"],
+      lineHeight: 24,
+      letterSpacing: 0.01,
+    }),
+    labelMedium: (isBold: boolean) => ({
+      fontFamily: "Poppins",
+      fontSize: 12,
+      fontWeight: (isBold ? 600 : 400) as TextStyle["fontWeight"],
+      lineHeight: 24,
+      letterSpacing: 0.01,
+    }),
+    labelLarge: (isBold: boolean) => ({
+      fontFamily: "Poppins",
+      fontSize: 13,
+      fontWeight: (isBold ? 600 : 400) as TextStyle["fontWeight"],
+      lineHeight: 16,
+      letterSpacing: 0,
+    }),
+    bodySmall: (isBold: boolean) => ({
+      fontFamily: "Poppins",
+      fontSize: 12,
+      fontWeight: (isBold ? 600 : 400) as TextStyle["fontWeight"],
+      lineHeight: 12,
+      letterSpacing: 0.01,
+    }),
+    bodyMedium: (isBold: boolean) => ({
+      fontFamily: "Poppins",
+      fontSize: 14,
+      fontWeight: (isBold ? 600 : 400) as TextStyle["fontWeight"],
+      lineHeight: 12,
+      letterSpacing: 0.01,
+    }),
+    bodyLarge: (isBold: boolean) => ({
+      fontFamily: "Poppins",
+      fontSize: 16,
+      fontWeight: (isBold ? 600 : 400) as TextStyle["fontWeight"],
+      lineHeight: 24,
+      letterSpacing: 0.01,
+    }),
+    headlineSmall: (isBold: boolean) => ({
+      fontFamily: "Poppins",
+      fontSize: 18,
+      fontWeight: (isBold ? 600 : 400) as TextStyle["fontWeight"],
+      lineHeight: 24,
+      letterSpacing: 0.01,
+    }),
+    headlineMedium: (isBold: boolean) => ({
+      fontFamily: "Poppins",
+      fontSize: 22,
+      fontWeight: (isBold ? 600 : 400) as TextStyle["fontWeight"],
+      lineHeight: 24,
+      letterSpacing: 0.01,
+    }),
+    headlineLarge: (isBold: boolean) => ({
+      fontFamily: "Poppins",
+      fontSize: 26,
+      fontWeight: (isBold ? 600 : 400) as TextStyle["fontWeight"],
+      lineHeight: 24,
+      letterSpacing: 0.01,
+    }),
+  },
+  padding: (v: number) => v * 8,
+  gap: (v: number) => v * 10,
 };
 
 const appThemes = {

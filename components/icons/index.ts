@@ -14,6 +14,8 @@ import Search from "./Search";
 import Settings from "./Settings";
 import Views from "./Views";
 import Volume from "./Volume";
+import Logo from "./Logo";
+import AppIcon from "./AppIcon";
 
 export {
   AirPlay,
@@ -32,4 +34,6 @@ export {
   Settings,
   Views,
   Volume,
+  Logo,
+  AppIcon,
 };
