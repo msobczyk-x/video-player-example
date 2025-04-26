@@ -62,8 +62,8 @@ const styles = StyleSheet.create((theme) => ({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: theme.padding(4),
-    paddingBottom: UnistylesRuntime.insets.bottom + theme.padding(2),
-    paddingTop: UnistylesRuntime.insets.top + theme.padding(2),
+    paddingBottom: UnistylesRuntime.insets.bottom + theme.padding(4),
+    paddingTop: UnistylesRuntime.insets.top + theme.padding(4),
     gap: theme.gap(2),
   },
   logoContainer: {

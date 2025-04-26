@@ -1,10 +1,11 @@
 import { Tabs } from "expo-router";
 import React from "react";
-import { Platform, Text } from "react-native";
-
+import { Platform, Text, View } from "react-native";
 import { HapticTab } from "@/components/HapticTab";
 import { Home, Search } from "@/components/icons";
-import { useUnistyles } from "react-native-unistyles";
+import { useUnistyles, UnistylesRuntime } from "react-native-unistyles";
+import { Typography } from "@/components/ui";
+import TabBarLabel from "@/components/navigation/TabBarLabel";
 
 export default function TabLayout() {
   const { theme } = useUnistyles();
@@ -12,10 +13,20 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarButton: HapticTab,
+        tabBarButton: (props) => (
+          <HapticTab
+            {...props}
+            style={{ justifyContent: "center", alignItems: "center" }}
+          />
+        ),
         animation: "shift",
         tabBarStyle: {
           backgroundColor: theme.colors.secondaryBackground,
+          height: 72 + UnistylesRuntime.insets.bottom,
+        },
+        tabBarItemStyle: {
+          alignItems: "center",
+          justifyContent: "center",
         },
       }}
       initialRouteName="index"
@@ -24,18 +35,11 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "Home",
-
           tabBarIcon: ({ focused }) => (
             <Home color={focused ? theme.colors.white : theme.colors.primary} />
           ),
           tabBarLabel: ({ focused, children }) => (
-            <Text
-              style={{
-                color: focused ? theme.colors.white : theme.colors.primary,
-              }}
-            >
-              {children}
-            </Text>
+            <TabBarLabel focused={focused}>{children}</TabBarLabel>
           ),
         }}
       />
@@ -49,13 +53,7 @@ export default function TabLayout() {
             />
           ),
           tabBarLabel: ({ focused, children }) => (
-            <Text
-              style={{
-                color: focused ? theme.colors.white : theme.colors.primary,
-              }}
-            >
-              {children}
-            </Text>
+            <TabBarLabel focused={focused}>{children}</TabBarLabel>
           ),
         }}
       />
