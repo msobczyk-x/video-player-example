@@ -4,6 +4,8 @@ const mainTheme = {
   colors: {
     primary: "#2B2D42",
     secondary: "#8D99AE",
+    white: "#FFFFFF",
+    primaryBackground: "#2B2D42",
     secondaryBackground: "#8D99AE",
     whiteBackground: "#FFFFFF",
     textPrimary: "#2B2D42",

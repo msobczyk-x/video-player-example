@@ -11,6 +11,7 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+
       "suspicious": {
         "noEmptyInterface": "off",
         "noExplicitAny": "off"
@@ -21,7 +22,8 @@
         "noBannedTypes": "off"
       },
       "correctness": {
-        "useExhaustiveDependencies": "off"
+        "useExhaustiveDependencies": "off",
+        "noUnusedImports": "warn"
       }
     }
   },
