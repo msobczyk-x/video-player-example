@@ -1,7 +1,7 @@
 import fetchPlaylist from "@/api/fetchPlaylist";
 import type { HttpClient } from "@/lib/httpClient";
-import { useQuery } from "@tanstack/react-query";
 import type { YouTubePlaylistItemListResponse } from "@/types/api/videos/playlist";
+import { useQuery } from "@tanstack/react-query";
 
 export default function useYouTubePlaylist(
   httpClient: HttpClient,

@@ -1,5 +1,5 @@
-import type { YouTubeSearchListResponse } from "./search";
 import type { YouTubePlaylistItemListResponse } from "./playlist";
+import type { YouTubeSearchListResponse } from "./search";
 export interface PageInfo {
   totalResults: number;
   resultsPerPage: number;

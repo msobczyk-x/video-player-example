@@ -1,11 +1,11 @@
+import httpClient from "@/lib/httpClient";
+import useYouTubePlaylist from "@/services/api/useFetchPlaylist";
 import type { VideoConfigObject } from "@/types/common";
 import { FlatList, View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
+import PlaylistItem from "./PlaylistItem";
 import PlaylistSectionHeader from "./PlaylistSectionHeader";
 import PlaylistSectionSkeleton from "./PlaylistSectionSkeleton";
-import useYouTubePlaylist from "@/services/api/useFetchPlaylist";
-import httpClient from "@/lib/httpClient";
-import PlaylistItem from "./PlaylistItem";
 
 type PlaylistSectionProps = {
   sectionData: VideoConfigObject;

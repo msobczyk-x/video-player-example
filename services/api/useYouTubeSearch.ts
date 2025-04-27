@@ -1,7 +1,7 @@
 import { fetchSearchList } from "@/api/fetchSearchList";
 import type { HttpClient } from "@/lib/httpClient";
-import { useInfiniteQuery } from "@tanstack/react-query";
 import type { YouTubeSearchListResponse } from "@/types/api/videos/search";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 export default function useYouTubeSearch(
   httpClient: HttpClient,

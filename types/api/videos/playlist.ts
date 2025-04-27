@@ -1,4 +1,4 @@
-import type { PageInfo, ResourceId, Thumbnail, ThumbnailsMap } from "./common";
+import type { PageInfo, ResourceId, ThumbnailsMap } from "./common";
 
 export interface YouTubePlaylistItemListResponse {
   kind: string;

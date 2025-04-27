@@ -1,7 +1,7 @@
 import fetchVideoDetails from "@/api/fetchVideoDetails";
 import type { HttpClient } from "@/lib/httpClient";
-import { useQuery } from "@tanstack/react-query";
 import type { YouTubeVideoListResponse } from "@/types/api/videos/video";
+import { useQuery } from "@tanstack/react-query";
 
 export default function useYouTubeVideoDetails(
   httpClient: HttpClient,

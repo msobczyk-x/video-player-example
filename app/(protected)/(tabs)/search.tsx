@@ -5,16 +5,16 @@ import VideoListItemSkeleton from "@/components/videos/VideoListItemSkeleton";
 import httpClient from "@/lib/httpClient";
 import useYouTubeSearch from "@/services/api/useYouTubeSearch";
 import { useSearchQuery } from "@/services/search/provider";
+import { isVideoResult } from "@/utils/ytVideoGuards";
+import { FlashList } from "@shopify/flash-list";
 import { useRouter } from "expo-router";
 import { useCallback, useMemo } from "react";
 import { ActivityIndicator, TouchableOpacity, View } from "react-native";
-import { FlashList } from "@shopify/flash-list";
 import {
   StyleSheet,
   UnistylesRuntime,
   useUnistyles,
 } from "react-native-unistyles";
-import { isVideoResult } from "@/utils/ytVideoGuards";
 
 export default function SearchScreen() {
   const { theme } = useUnistyles();

@@ -1,8 +1,8 @@
 import { Typography } from "@/components/ui";
+import { formatDate } from "@/utils/formatDate";
 import { useRouter } from "expo-router";
 import { Image, TouchableOpacity, View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
-import { formatDate } from "@/utils/formatDate";
 type PlaylistItemProps = {
   videoId: string;
   title: string;

@@ -1,8 +1,8 @@
+import { formatDate } from "@/utils/formatDate";
+import { useRouter } from "expo-router";
 import { Image, TouchableOpacity, View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
 import { Typography } from "../ui";
-import { formatDate } from "@/utils/formatDate";
-import { useRouter } from "expo-router";
 
 type VideoListItemProps = {
   videoId: string;
