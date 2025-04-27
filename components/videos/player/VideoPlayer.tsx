@@ -1,4 +1,5 @@
 import { VIDEO_PLAYER_CONFIG, VIDEO_URL } from "@/constants/video";
+import { useVideoActions } from "@/services/video/store";
 import { useRouter } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { TouchableWithoutFeedback, View } from "react-native";
@@ -9,7 +10,6 @@ import { Overlay } from "./Overlay";
 import VideoPlayerControls from "./VideoPlayerControls";
 import VideoPlayerFooter from "./VideoPlayerFooter";
 import VideoPlayerHeader from "./VideoPlayerHeader";
-import { useVideoActions } from "@/services/video/store";
 
 const VideoPlayer = () => {
   const router = useRouter();

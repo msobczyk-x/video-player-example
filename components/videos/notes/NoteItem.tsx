@@ -1,8 +1,8 @@
 import { Typography } from "@/components/ui";
 import type { Note } from "@/types/common";
+import { formatTime } from "@/utils/formatTime";
 import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
-import { formatTime } from "@/utils/formatTime";
 export default function NoteItem({ item }: { item: Note }) {
   return (
     <View style={styles.container}>

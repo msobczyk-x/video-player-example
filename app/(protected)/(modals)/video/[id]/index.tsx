@@ -8,7 +8,7 @@ import useYouTubeVideoDetails from "@/services/api/useYouTubeVideoDetails";
 import { useLocalSearchParams } from "expo-router";
 import { useMemo, useState } from "react";
 import { RefreshControl } from "react-native";
-import { ActivityIndicator, ScrollView, Text, View } from "react-native";
+import { ActivityIndicator, ScrollView, View } from "react-native";
 import {
   StyleSheet,
   UnistylesRuntime,

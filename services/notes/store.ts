@@ -1,7 +1,7 @@
+import type { Note } from "@/types/common";
+import { MMKV } from "react-native-mmkv";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { MMKV } from "react-native-mmkv";
-import type { Note } from "@/types/common";
 
 const storage = new MMKV();
 

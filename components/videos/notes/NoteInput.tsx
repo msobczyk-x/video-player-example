@@ -1,10 +1,10 @@
 import { Button, Typography } from "@/components/ui";
+import { useRef, useState } from "react";
 import { TextInput, View } from "react-native";
 import type {
   NativeSyntheticEvent,
   TextInputSubmitEditingEventData,
 } from "react-native";
-import { useRef, useState } from "react";
 import { StyleSheet } from "react-native-unistyles";
 
 type NoteInputProps = {

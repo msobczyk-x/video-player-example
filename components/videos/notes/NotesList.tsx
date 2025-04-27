@@ -1,10 +1,10 @@
 import { useNotesActions, useNotesStore } from "@/services/notes/store";
+import { useVideoTime } from "@/services/video/store";
 import { useMemo } from "react";
 import { FlatList, View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
-import NoteItem from "./NoteItem";
 import NoteInput from "./NoteInput";
-import { useVideoTime } from "@/services/video/store";
+import NoteItem from "./NoteItem";
 
 type NotesProps = {
   videoId: string;
