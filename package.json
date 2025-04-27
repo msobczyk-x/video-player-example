@@ -54,12 +54,14 @@
     "react-native-video": "^6.13.0",
     "react-native-web": "~0.19.13",
     "react-native-webview": "13.12.5",
+    "uuid": "^11.1.0",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.3.12",
+    "@types/uuid": "^10.0.0",
     "@types/react-test-renderer": "^18.3.0",
     "lefthook": "^1.11.11",
     "@biomejs/biome": "^1.9.4",

@@ -1,11 +1,12 @@
 import { TabBar } from "@/components/ui/tabbar";
 import VideoDescription from "@/components/videos/VideoDescription";
 import VideoTitle from "@/components/videos/VideoTitle";
+import NotesList from "@/components/videos/notes/NotesList";
 import VideoPlayer from "@/components/videos/player/VideoPlayer";
 import httpClient from "@/lib/httpClient";
 import useYouTubeVideoDetails from "@/services/api/useYouTubeVideoDetails";
 import { useLocalSearchParams } from "expo-router";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { RefreshControl } from "react-native";
 import { ActivityIndicator, ScrollView, Text, View } from "react-native";
 import {
@@ -16,6 +17,7 @@ import {
 export default function VideoDetailsScreen() {
   const { theme } = useUnistyles();
   const { id } = useLocalSearchParams();
+  const [videoTime, setVideoTime] = useState(0);
   const { data, isLoading, refetch, isRefetching } = useYouTubeVideoDetails(
     httpClient,
     id as string,
@@ -26,6 +28,10 @@ export default function VideoDetailsScreen() {
     [data],
   );
 
+  const onVideoTimeChange = (time: number) => {
+    setVideoTime(time);
+  };
+
   const tabsConfig = useMemo(
     () =>
       itemData
@@ -34,36 +40,37 @@ export default function VideoDetailsScreen() {
               id: "details",
               label: "Details",
               content: (
-                <VideoDescription
-                  description={itemData.snippet.description}
-                  likes={itemData?.statistics?.likeCount ?? "0"}
-                  views={itemData?.statistics?.viewCount ?? "0"}
-                />
+                <ScrollView
+                  refreshControl={
+                    <RefreshControl
+                      refreshing={isRefetching}
+                      onRefresh={() => refetch()}
+                    />
+                  }
+                >
+                  <VideoDescription
+                    description={itemData.snippet.description}
+                    likes={itemData?.statistics?.likeCount ?? "0"}
+                    views={itemData?.statistics?.viewCount ?? "0"}
+                  />
+                </ScrollView>
               ),
             },
             {
               id: "notes",
               label: "Notes",
-              content: <Text>Notes content</Text>,
+              content: <NotesList videoId={id as string} />,
             },
           ]
         : [],
-    [itemData, id],
+    [itemData, id, videoTime],
   );
 
   return (
     <View style={styles.container}>
       <View style={styles.mainContainer}>
         <VideoPlayer />
-        <ScrollView
-          refreshControl={
-            <RefreshControl
-              refreshing={isRefetching}
-              onRefresh={() => refetch()}
-            />
-          }
-          contentContainerStyle={styles.scrollViewContent}
-        >
+        <View style={styles.scrollViewContent}>
           {isLoading || !itemData ? (
             <ActivityIndicator size={"large"} color={theme.colors.primary} />
           ) : (
@@ -75,7 +82,7 @@ export default function VideoDetailsScreen() {
               <TabBar tabs={tabsConfig} initialTabId="details" />
             </>
           )}
-        </ScrollView>
+        </View>
       </View>
     </View>
   );
@@ -90,9 +97,9 @@ const styles = StyleSheet.create((theme) => ({
   mainContainer: {
     flex: 1,
     backgroundColor: theme.colors.whiteBackground,
-    paddingBottom: UnistylesRuntime.insets.bottom,
   },
   scrollViewContent: {
+    flex: 1,
     backgroundColor: theme.colors.whiteBackground,
     paddingHorizontal: theme.padding(2),
     paddingTop: theme.padding(2.5),

@@ -14,3 +14,9 @@ export type VideoConfigObject = {
 export type VideoCategory = {
   [key in EVideoCategory]: VideoConfigObject;
 };
+
+export interface Note {
+  videoId: string;
+  text: string;
+  videoTime: number;
+}

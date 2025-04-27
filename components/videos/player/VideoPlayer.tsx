@@ -9,6 +9,7 @@ import { Overlay } from "./Overlay";
 import VideoPlayerControls from "./VideoPlayerControls";
 import VideoPlayerFooter from "./VideoPlayerFooter";
 import VideoPlayerHeader from "./VideoPlayerHeader";
+import { useVideoActions } from "@/services/video/store";
 
 const VideoPlayer = () => {
   const router = useRouter();
@@ -21,7 +22,7 @@ const VideoPlayer = () => {
   const [paused, setPaused] = useState(false);
   const [muted, setMuted] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-
+  const { setCurrentTime: setTime } = useVideoActions();
   const toggleFullscreen = () => {
     setIsFullscreen(!isFullscreen);
     if (videoRef.current) {
@@ -100,7 +101,9 @@ const VideoPlayer = () => {
 
   const onProgress = (data: any) => {
     if (!seeking) {
-      setCurrentTime(data.currentTime);
+      const newTime = data.currentTime;
+      setCurrentTime(newTime);
+      setTime(newTime);
     }
   };
 
