@@ -1,6 +1,7 @@
 import SearchHeader from "@/components/header/SearchHeader";
 import VideoListItemSkeleton from "@/components/videos/VideoListItemSkeleton";
-import { ScrollView, View } from "react-native";
+import { useRouter } from "expo-router";
+import { ScrollView, TouchableOpacity, View } from "react-native";
 import {
   StyleSheet,
   UnistylesRuntime,
@@ -9,6 +10,7 @@ import {
 
 export default function SearchScreen() {
   const { theme } = useUnistyles();
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <SearchHeader />
@@ -16,9 +18,14 @@ export default function SearchScreen() {
         contentContainerStyle={{ gap: 16, paddingVertical: theme.padding(3) }}
       >
         {Array.from({ length: 5 }).map((_, index) => (
-          <View key={`skeleton-${index}`}>
+          <TouchableOpacity
+            key={`skeleton-${index}`}
+            onPress={() =>
+              router.navigate(`/(protected)/(modals)/video/${index}`)
+            }
+          >
             <VideoListItemSkeleton />
-          </View>
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </View>

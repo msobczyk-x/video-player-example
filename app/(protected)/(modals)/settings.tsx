@@ -9,7 +9,11 @@ export default function SettingsScreen() {
   return (
     <View style={styles.container}>
       <SettingsHeader />
-      <UserPreview />
+
+      <View style={styles.userContainer}>
+        <UserPreview />
+      </View>
+
       <Divider marginTop={0} />
       <NotificationOptions />
     </View>
@@ -24,5 +28,9 @@ const styles = StyleSheet.create((theme) => ({
     paddingTop: UnistylesRuntime.insets.top + theme.padding(3),
     paddingBottom: UnistylesRuntime.insets.bottom + theme.padding(3),
     paddingHorizontal: theme.padding(3),
+  },
+  userContainer: {
+    justifyContent: "center",
+    paddingVertical: theme.padding(3),
   },
 }));

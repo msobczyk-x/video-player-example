@@ -2,12 +2,17 @@ import { View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
 import AvatarPlaceholder from "../icons/AvatarPlaceholder";
 import { Typography } from "../ui";
-export default function UserPreview() {
+
+type UserPreviewProps = {
+  name?: string;
+};
+
+export default function UserPreview({ name = "John Doe" }: UserPreviewProps) {
   return (
     <View style={styles.container}>
       <AvatarPlaceholder />
       <Typography variant="bodyMedium" isBold>
-        John Doe
+        {name}
       </Typography>
     </View>
   );
@@ -19,8 +24,6 @@ const styles = StyleSheet.create((theme) => ({
     gap: theme.gap(2),
     width: "100%",
     alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: theme.padding(3),
   },
   avatar: {
     justifyContent: "center",
