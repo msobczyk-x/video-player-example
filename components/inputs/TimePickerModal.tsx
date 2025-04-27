@@ -1,13 +1,13 @@
+import DateTimePicker from "@react-native-community/datetimepicker";
 import React from "react";
 import {
   Modal,
-  View,
-  TouchableOpacity,
   Platform,
   StyleSheet,
+  TouchableOpacity,
   TouchableWithoutFeedback,
+  View,
 } from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import { Typography } from "../ui";
 
 interface TimePickerModalProps {

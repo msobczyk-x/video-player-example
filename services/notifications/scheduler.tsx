@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
 import * as Notifications from "expo-notifications";
+import { useCallback, useEffect, useState } from "react";
 
 export const useReminderScheduler = () => {
   const [hasReminder, setHasReminder] = useState<boolean>(false);

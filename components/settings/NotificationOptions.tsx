@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import { Switch, View, TouchableOpacity, Alert } from "react-native";
+import { useReminderScheduler } from "@/services/notifications/scheduler";
+import { useEffect, useState } from "react";
+import { Alert, Switch, TouchableOpacity, View } from "react-native";
 import { StyleSheet, useUnistyles } from "react-native-unistyles";
 import { Clock, Notification } from "../icons";
-import { Typography } from "../ui";
-import { useReminderScheduler } from "@/services/notifications/scheduler";
 import { TimePickerModal } from "../inputs/TimePickerModal";
+import { Typography } from "../ui";
 
 export default function NotificationOptions() {
   const { theme } = useUnistyles();
