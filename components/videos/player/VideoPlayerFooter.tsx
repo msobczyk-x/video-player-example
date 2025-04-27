@@ -1,9 +1,9 @@
-import { View, TouchableOpacity } from "react-native";
+import { Fullscreen } from "@/components/icons";
 import { Typography } from "@/components/ui";
 import SliderWrapper from "@/components/ui/SliderWrapper";
-import { StyleSheet, useUnistyles } from "react-native-unistyles";
 import { formatTime } from "@/utils/formatTime";
-import { Fullscreen } from "@/components/icons";
+import { TouchableOpacity, View } from "react-native";
+import { StyleSheet, useUnistyles } from "react-native-unistyles";
 type VideoPlayerFooterProps = {
   currentTime: number;
   duration: number;

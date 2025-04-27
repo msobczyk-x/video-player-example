@@ -1,6 +1,6 @@
 import Slider from "@react-native-community/slider";
 import type { SliderProps } from "@react-native-community/slider";
-import { View, Platform } from "react-native";
+import { Platform, View } from "react-native";
 
 type SliderWrapperProps = SliderProps & {
   scaleIOS: number;

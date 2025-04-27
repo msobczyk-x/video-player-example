@@ -1,7 +1,7 @@
 import { TabBar } from "@/components/ui/tabbar";
 import VideoDescription from "@/components/videos/VideoDescription";
-import VideoPlayer from "@/components/videos/player/VideoPlayer";
 import VideoTitle from "@/components/videos/VideoTitle";
+import VideoPlayer from "@/components/videos/player/VideoPlayer";
 import { ScrollView, Text, View } from "react-native";
 import { StyleSheet, UnistylesRuntime } from "react-native-unistyles";
 export default function VideoDetailsScreen() {

@@ -1,5 +1,5 @@
-import { View, TouchableOpacity } from "react-native";
-import { Volume, AirPlay, LeftArrow } from "@/components/icons";
+import { AirPlay, LeftArrow, Volume } from "@/components/icons";
+import { TouchableOpacity, View } from "react-native";
 import { StyleSheet, useUnistyles } from "react-native-unistyles";
 
 type VideoPlayerHeaderProps = {

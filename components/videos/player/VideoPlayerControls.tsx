@@ -1,6 +1,6 @@
+import { Backward, Forward, Pause, Play } from "@/components/icons";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
-import { Backward, Pause, Play, Forward } from "@/components/icons";
 import { StyleSheet, useUnistyles } from "react-native-unistyles";
 export default function VideoPlayerControls({
   paused,

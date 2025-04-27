@@ -1,14 +1,14 @@
-import { StyleSheet, useUnistyles } from "react-native-unistyles";
-import { useRef, useState, useEffect } from "react";
-import { VIDEO_URL, VIDEO_PLAYER_CONFIG } from "@/constants/video";
+import { VIDEO_PLAYER_CONFIG, VIDEO_URL } from "@/constants/video";
+import { useRouter } from "expo-router";
+import { useEffect, useRef, useState } from "react";
+import { TouchableWithoutFeedback, View } from "react-native";
+import { StyleSheet, } from "react-native-unistyles";
 import Video from "react-native-video";
 import type { VideoRef } from "react-native-video";
-import { TouchableWithoutFeedback, View } from "react-native";
 import { Overlay } from "./Overlay";
-import { useRouter } from "expo-router";
+import VideoPlayerControls from "./VideoPlayerControls";
 import VideoPlayerFooter from "./VideoPlayerFooter";
 import VideoPlayerHeader from "./VideoPlayerHeader";
-import VideoPlayerControls from "./VideoPlayerControls";
 
 const VideoPlayer = () => {
   const router = useRouter();
