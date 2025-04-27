@@ -11,6 +11,7 @@ type SearchHeaderProps = {
 
 export default function SearchHeader({ results }: SearchHeaderProps) {
   const query = useSearchQuery();
+
   return (
     <View style={styles.header}>
       <View style={styles.input}>

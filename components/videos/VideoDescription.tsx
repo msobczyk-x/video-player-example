@@ -5,14 +5,14 @@ import { Typography } from "../ui";
 
 type VideoDescriptionProps = {
   description: string;
-  views: number;
-  likes: number;
+  views: string;
+  likes: string;
 };
 
 export default function VideoDescription({
   description,
-  views = 0,
-  likes = 0,
+  views = "0",
+  likes = "0",
 }: VideoDescriptionProps) {
   const { theme } = useUnistyles();
   return (
@@ -21,11 +21,11 @@ export default function VideoDescription({
         <Typography variant="labelSmall" isBold>
           Description
         </Typography>
-        <Typography variant="bodySmall" style={{ lineHeight: 12 }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          venenatis semper purus a accumsan. Donec accumsan pulvinar metus,
-          euismod lacinia libero congue nec. Vivamus ut massa finibus, consequat
-          dui commodo, semper magna.
+        <Typography
+          variant="bodySmall"
+          style={{ lineHeight: 12, paddingTop: 8 }}
+        >
+          {description}
         </Typography>
       </View>
       <View style={styles.columnContainer}>

@@ -2,7 +2,7 @@ import { VIDEO_PLAYER_CONFIG, VIDEO_URL } from "@/constants/video";
 import { useRouter } from "expo-router";
 import { useEffect, useRef, useState } from "react";
 import { TouchableWithoutFeedback, View } from "react-native";
-import { StyleSheet, } from "react-native-unistyles";
+import { StyleSheet } from "react-native-unistyles";
 import Video from "react-native-video";
 import type { VideoRef } from "react-native-video";
 import { Overlay } from "./Overlay";
@@ -175,11 +175,12 @@ export default VideoPlayer;
 
 const styles = StyleSheet.create((theme) => ({
   container: {
-    flex: 1,
     width: "100%",
     paddingVertical: theme.padding(3),
     backgroundColor: "#000000",
     position: "relative",
+    height: 280,
+    zIndex: 10,
   },
   videoWrapper: {
     flex: 1,

@@ -1,39 +1,77 @@
-import { Image, View } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 import { StyleSheet } from "react-native-unistyles";
 import { Typography } from "../ui";
+import { formatDate } from "@/utils/formatDate";
+import { useRouter } from "expo-router";
 
 type VideoListItemProps = {
-  videoData: {};
+  videoId: string;
+  thumbnailUrl: string;
+  channelName: string;
+  description: string;
+  createdAt: string;
 };
-export default function VideoListItem({ videoData }: VideoListItemProps) {
+
+export default function VideoListItem({
+  videoId,
+  thumbnailUrl,
+  channelName,
+  description,
+  createdAt,
+}: VideoListItemProps) {
+  const router = useRouter();
   return (
-    <View style={styles.container}>
-      <Image source={{ uri: "" }} style={styles.thumbnail} />
-      <View style={styles.textsContainer}>
-        <Typography variant="bodySmall" isBold>
-          title
-        </Typography>
-        <Typography numberOfLines={2} ellipsizeMode="tail" variant="bodyMedium">
-          description
-        </Typography>
-        <Typography variant="labelSmall">12.04.2025</Typography>
+    <TouchableOpacity
+      onPress={() => router.navigate(`/(protected)/(modals)/video/${videoId}`)}
+    >
+      <View style={styles.container}>
+        <Image source={{ uri: thumbnailUrl }} style={styles.thumbnail} />
+        <View style={styles.textsContainer}>
+          <Typography
+            variant="bodySmall"
+            isBold
+            numberOfLines={1}
+            ellipsizeMode="tail"
+            style={[styles.text, { lineHeight: 12 }]}
+          >
+            {channelName}
+          </Typography>
+          {description && (
+            <Typography
+              numberOfLines={2}
+              ellipsizeMode="tail"
+              variant="bodyMedium"
+              style={[styles.text, { lineHeight: 12 }]}
+            >
+              {description}
+            </Typography>
+          )}
+          <Typography variant="labelSmall" style={styles.date}>
+            {formatDate(createdAt)}
+          </Typography>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create((theme) => ({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    gap: theme.gap(1),
   },
   thumbnail: {
-    width: 345,
+    width: "100%",
     height: 200,
     borderRadius: theme.radius(2),
   },
   textsContainer: {
-    gap: theme.gap(1.5),
+    gap: theme.gap(0.5),
+  },
+  date: {
+    alignSelf: "flex-end",
+  },
+  text: {
+    paddingTop: theme.padding(1),
   },
 }));
