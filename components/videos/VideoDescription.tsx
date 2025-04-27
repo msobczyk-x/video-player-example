@@ -1,7 +1,7 @@
-import { StyleSheet, useUnistyles } from "react-native-unistyles";
 import { View } from "react-native";
-import { Typography } from "../ui";
+import { StyleSheet, useUnistyles } from "react-native-unistyles";
 import { Likes, Views } from "../icons";
+import { Typography } from "../ui";
 
 type VideoDescriptionProps = {
   description: string;

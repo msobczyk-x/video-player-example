@@ -1,7 +1,7 @@
-import { StyleSheet } from "react-native-unistyles";
-import { TouchableOpacity } from "react-native";
-import Typography from "../Typography";
 import type { ReactNode } from "react";
+import { TouchableOpacity } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
+import Typography from "../Typography";
 
 export type TabItem = {
   id: string;

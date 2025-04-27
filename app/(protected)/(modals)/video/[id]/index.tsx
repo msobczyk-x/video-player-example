@@ -1,5 +1,4 @@
-import UserPreview from "@/components/settings/UserPreview";
-import { Typography } from "@/components/ui";
+
 import { TabBar } from "@/components/ui/tabbar";
 import VideoDescription from "@/components/videos/VideoDescription";
 import VideoTitle from "@/components/videos/VideoTitle";
