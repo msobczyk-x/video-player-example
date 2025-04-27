@@ -1,10 +1,11 @@
 import type { HttpClient } from "@/lib/httpClient";
 import type { YouTubeSearchListResponse } from "@/types/api/videos/search";
-
+import { ESearchFilter } from "@/types/api/videos/search";
 export type FetchSearchListParams = {
   searchQuery: string;
   maxResults?: number;
   pageToken?: string;
+  sortBy?: ESearchFilter;
 };
 
 export async function fetchSearchList(
@@ -21,6 +22,7 @@ export async function fetchSearchList(
     part: "snippet",
     q: params.searchQuery,
     maxResults: params.maxResults ?? 25,
+    order: params.sortBy ?? ESearchFilter.LATEST,
   };
 
   if (params.pageToken) {

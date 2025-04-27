@@ -4,10 +4,10 @@ import VideoListItem from "@/components/videos/VideoListItem";
 import VideoListItemSkeleton from "@/components/videos/VideoListItemSkeleton";
 import httpClient from "@/lib/httpClient";
 import useYouTubeSearch from "@/services/api/useYouTubeSearch";
-import { useSearchQuery } from "@/services/search/provider";
+import { useSearchQuery, useSearchStore } from "@/services/search/provider";
+import { formatTotalResults } from "@/utils/formatTotalResults";
 import { isVideoResult } from "@/utils/ytVideoGuards";
 import { FlashList } from "@shopify/flash-list";
-import { useRouter } from "expo-router";
 import { useCallback, useMemo } from "react";
 import { ActivityIndicator, TouchableOpacity, View } from "react-native";
 import {
@@ -18,8 +18,8 @@ import {
 
 export default function SearchScreen() {
   const { theme } = useUnistyles();
-  const router = useRouter();
   const query = useSearchQuery();
+  const sortingOrder = useSearchStore((state) => state.filter);
   const {
     data,
     isLoading,
@@ -28,14 +28,21 @@ export default function SearchScreen() {
     fetchNextPage,
     isRefetching,
     refetch,
-  } = useYouTubeSearch(httpClient, query);
-  console.log(data);
+  } = useYouTubeSearch(httpClient, query, sortingOrder);
+
   const listData = useMemo(
     () =>
       data?.pages.flatMap((page) =>
         page.items.filter((item) => isVideoResult(item)),
       ) ?? [],
     [data],
+  );
+  const totalResults = useMemo(
+    () =>
+      data?.pages?.[0]?.pageInfo.totalResults
+        ? formatTotalResults(data?.pages[0].pageInfo.totalResults)
+        : "0",
+    [data?.pages?.[0]?.pageInfo.totalResults],
   );
   const handleLoadMore = useCallback(() => {
     if (hasNextPage && !isFetchingNextPage) {
@@ -54,7 +61,7 @@ export default function SearchScreen() {
   );
   return (
     <View style={styles.container}>
-      <SearchHeader />
+      <SearchHeader results={totalResults} />
 
       <FlashList
         data={listData}

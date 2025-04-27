@@ -32,7 +32,7 @@ export default function VideoListItem({
             isBold
             numberOfLines={1}
             ellipsizeMode="tail"
-            style={[styles.text, { lineHeight: 12 }]}
+            style={[styles.text, { lineHeight: 12, fontWeight: 700 }]}
           >
             {channelName}
           </Typography>

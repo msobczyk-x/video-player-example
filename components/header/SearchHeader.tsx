@@ -6,7 +6,7 @@ import { Typography } from "../ui";
 import SearchFilter from "../videos/filters/SearchFilter";
 
 type SearchHeaderProps = {
-  results?: number;
+  results?: string;
 };
 
 export default function SearchHeader({ results }: SearchHeaderProps) {

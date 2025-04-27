@@ -4,22 +4,25 @@ import VideoTitle from "@/components/videos/VideoTitle";
 import VideoPlayer from "@/components/videos/player/VideoPlayer";
 import httpClient from "@/lib/httpClient";
 import useYouTubeVideoDetails from "@/services/api/useYouTubeVideoDetails";
-import type { YouTubeVideo } from "@/types/api/videos/video";
 import { useLocalSearchParams } from "expo-router";
 import { useMemo } from "react";
 import { RefreshControl } from "react-native";
 import { ActivityIndicator, ScrollView, Text, View } from "react-native";
-import { StyleSheet, UnistylesRuntime } from "react-native-unistyles";
+import {
+  StyleSheet,
+  UnistylesRuntime,
+  useUnistyles,
+} from "react-native-unistyles";
 export default function VideoDetailsScreen() {
+  const { theme } = useUnistyles();
   const { id } = useLocalSearchParams();
   const { data, isLoading, refetch, isRefetching } = useYouTubeVideoDetails(
     httpClient,
     id as string,
   );
-  console.log(data);
+
   const itemData = useMemo(
-    () =>
-      (data && data.items.length > 0 && data?.items[0]) || ({} as YouTubeVideo),
+    () => (data && data.items.length > 0 && data?.items[0]) || null,
     [data],
   );
 
@@ -61,8 +64,8 @@ export default function VideoDetailsScreen() {
           }
           contentContainerStyle={styles.scrollViewContent}
         >
-          {isLoading ? (
-            <ActivityIndicator />
+          {isLoading || !itemData ? (
+            <ActivityIndicator size={"large"} color={theme.colors.primary} />
           ) : (
             <>
               <VideoTitle

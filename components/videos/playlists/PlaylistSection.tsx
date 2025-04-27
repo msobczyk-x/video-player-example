@@ -16,7 +16,6 @@ export default function PlaylistSection({ sectionData }: PlaylistSectionProps) {
     httpClient,
     sectionData.playlistId,
   );
-  console.log(data);
   if (isLoading) {
     return (
       <View style={styles.container}>
