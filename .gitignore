@@ -40,3 +40,6 @@ app-example
 .env
 ios/
 android/
+
+# Assets
+*.mp4

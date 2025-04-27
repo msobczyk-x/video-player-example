@@ -1,8 +1,10 @@
 pre-commit:
   parallel: true
-  jobs:
-    - run: bun lint {staged_files}
+  commands:
+    lint-audit:
+      run: bun lint {staged_files}
       glob: "*.{js,ts,jsx,tsx}"
 
-    - run: bun check {staged_files}
+    lint-check-and-write:
+      run: bun check {staged_files}
       glob: "*.{js,ts,jsx,tsx}"

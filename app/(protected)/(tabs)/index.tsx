@@ -1,28 +1,54 @@
-import { Image, Platform, StyleSheet, Text, View } from "react-native";
+import HomeHeader from "@/components/header/HomeHeader";
+import Divider from "@/components/ui/Divider";
+import PlaylistSection from "@/components/videos/playlists/PlaylistSection";
+import { videoCategoriesConfig } from "@/config/api";
+import { useMemo } from "react";
+import { FlatList, View } from "react-native";
+import {
+  StyleSheet,
+  UnistylesRuntime,
+  useUnistyles,
+} from "react-native-unistyles";
 
 export default function HomeScreen() {
+  const { theme } = useUnistyles();
+  const categoriesData = useMemo(
+    () =>
+      Object.entries(videoCategoriesConfig).map(
+        ([_, categoryData]) => categoryData,
+      ),
+    [videoCategoriesConfig],
+  );
+
+  const headerComponent = useMemo(
+    () => (
+      <View style={{ paddingBottom: theme.padding(3) }}>
+        <HomeHeader />
+      </View>
+    ),
+    [],
+  );
+
   return (
-    <View>
-      <Text>home</Text>
+    <View style={styles.container}>
+      <FlatList
+        data={categoriesData}
+        ListHeaderComponent={() => headerComponent}
+        contentContainerStyle={{ paddingBottom: theme.padding(3) }}
+        ItemSeparatorComponent={() => <Divider />}
+        renderItem={({ item }) => (
+          <PlaylistSection key={`category-${item.title}`} sectionData={item} />
+        )}
+      />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
+const styles = StyleSheet.create((theme) => ({
+  container: {
+    flex: 1,
+    backgroundColor: theme.colors.whiteBackground,
+    paddingTop: UnistylesRuntime.insets.top + theme.padding(3),
+    gap: theme.gap(3),
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-  },
-});
+}));
