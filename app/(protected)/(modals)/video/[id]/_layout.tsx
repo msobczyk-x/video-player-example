@@ -8,7 +8,7 @@ export default function VideoDetailsLayout() {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="id" />
+      <Stack.Screen name="index" />
     </Stack>
   );
 }

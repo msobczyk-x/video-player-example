@@ -13,6 +13,7 @@ const mainTheme = {
     textWhite: "#FFFFFF",
     textPlaceholder: "rgba(43, 45, 66, 0.6)",
     inactive: "rgba(200,200,200,1)",
+    red: "rgba(199, 31, 31, 1)",
   },
   fonts: {
     labelSmall: (isBold: boolean) => ({
