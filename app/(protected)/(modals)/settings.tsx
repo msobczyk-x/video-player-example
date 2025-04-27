@@ -9,11 +9,9 @@ export default function SettingsScreen() {
   return (
     <View style={styles.container}>
       <SettingsHeader />
-
       <View style={styles.userContainer}>
         <UserPreview />
       </View>
-
       <Divider marginTop={0} />
       <NotificationOptions />
     </View>

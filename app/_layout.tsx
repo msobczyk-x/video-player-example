@@ -4,8 +4,19 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import * as Notifications from "expo-notifications";
+import { NotificationProvider } from "@/services/notifications/provider";
+
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: true,
+  }),
+});
 
 const queryClient = new QueryClient();
 export default function RootLayout() {
@@ -42,11 +53,13 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Stack initialRouteName="index">
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="(protected)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
+      <NotificationProvider>
+        <Stack initialRouteName="index">
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="(protected)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </NotificationProvider>
     </QueryClientProvider>
   );
 }
