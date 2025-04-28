@@ -1,6 +1,6 @@
 # React Native Video Player Example
 
-This project is made for learning and testing capabilities of react-native-video library and YouTube API Data v3.
+Main purpose of this project is learning and testing capabilities of react-native-video library and YouTube API Data v3. 
 
 ## Preview
 https://github.com/user-attachments/assets/7629b9d4-9ed8-4c4f-a1d5-69d823e0c923
