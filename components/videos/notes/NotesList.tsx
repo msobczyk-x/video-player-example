@@ -1,4 +1,4 @@
-import { useNotesActions, useNotesStore } from "@/services/notes/store";
+import { useNotesStore } from "@/services/notes/store";
 import { useVideoTime } from "@/services/video/store";
 import { useMemo } from "react";
 import { FlatList, View } from "react-native";
