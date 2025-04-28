@@ -1,50 +1,70 @@
-# Welcome to your Expo app 👋
+# React Native Video Player Example
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+[[example_video]https://github.com/msobczyk-x/video-player-example/raw/refs/heads/main/docs/videos/categories_screen.mp4]
 
 ## Get started
 
 1. Install dependencies
 
    ```bash
-   npm install
+   bun install
    ```
 
-2. Start the app
+2. Use expo prebuild (some of the dependencies might not be compatible with Expo Go, so this step is required)
 
    ```bash
-    npx expo start
+    bunx expo prebuild
    ```
 
-In the output, you'll find options to open the app in a
+3. (IOS only) Replace those lines in `ios/Podfile`
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```ruby
+post_install do |installer|
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false,
+      :ccache_enabled => podfile_properties['apple.ccacheEnabled'] == 'true',
+    )
+    ###########################
+    #This line is added to fix deployment target issue of react-native-unistyles
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = podfile_properties['ios.deploymentTarget'] || '15.1'
+        end
+    end
+    ###########################
+    # This is necessary for Xcode 14, because it signs resource bundles by default
+    # when building for devices.
+    installer.target_installation_results.pod_target_installation_results
+      .each do |pod_name, target_installation_result|
+      target_installation_result.resource_bundle_targets.each do |resource_bundle_target|
+        resource_bundle_target.build_configurations.each do |config|
+          config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+        end
+      end
+    end
+  end
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+4. (IOS only) Run this command to trigger post_install:
 
-## Learn more
+```bash
+cd ios & pod install & cd ..
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+5. Build the development build
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+6. Run the development server
 
-## Join the community
+```bash
+bunx expo start
+```
 
-Join our community of developers creating universal apps.
+### Core dependencies
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Expo ecosystem
+- react-native-video
+- react-native-mmkv
+- @shopify/flash-list
+- react-native-unistyles
