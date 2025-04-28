@@ -12,8 +12,9 @@ type NotesProps = {
 
 export default function NotesList({ videoId }: NotesProps) {
   const notes = useNotesStore((state) => state.notes);
+  const addNote = useNotesStore((state) => state.addNote);
+
   const videoTime = useVideoTime();
-  const { addNote } = useNotesActions();
 
   const videoNotes = useMemo(
     () => notes.filter((note) => note.videoId === videoId),

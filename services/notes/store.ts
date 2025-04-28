@@ -25,22 +25,20 @@ type NoteStoreActions = {
   addNote: (note: Note) => void;
 };
 
-type NoteStore = NoteStoreState & { actions: NoteStoreActions };
+type NoteStore = NoteStoreState & NoteStoreActions;
 
 export const useNotesStore = create<NoteStore>()(
   persist(
     (set) => ({
       notes: [],
-      actions: {
-        addNote: (note: Note) =>
-          set((state) => ({ notes: [...state.notes, note] })),
+      addNote: (note: Note) => {
+        set((state) => ({ notes: [...state.notes, note] }));
       },
     }),
     {
       name: "yt-notes-store",
       storage: createJSONStorage(() => mmkvStorage),
+      partialize: (state) => ({ notes: state.notes }),
     },
   ),
 );
-
-export const useNotesActions = () => useNotesStore((store) => store.actions);
