@@ -19,15 +19,15 @@ cp .env.example .env
 
 1. Install dependencies
 
-   ```bash
-   bun install
-   ```
+```bash
+bun install
+```
 
 2. Use expo prebuild (some of the dependencies might not be compatible with Expo Go, so this step is required)
 
-   ```bash
-    bunx expo prebuild
-   ```
+```bash
+bunx expo prebuild
+```
 
 3. (IOS only) Replace those lines in `ios/Podfile`
 
