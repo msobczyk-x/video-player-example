@@ -1,6 +1,11 @@
 # React Native Video Player Example
 
-[[example_video]https://github.com/msobczyk-x/video-player-example/raw/refs/heads/main/docs/videos/categories_screen.mp4]
+This project is made for learning and testing capabilities of react-native-video library and YouTube API Data v3.
+
+## Preview
+https://github.com/user-attachments/assets/7629b9d4-9ed8-4c4f-a1d5-69d823e0c923
+
+See other videos and screenshots [here](https://github.com/msobczyk-x/video-player-example/tree/main/docs)
 
 ## Get started
 
