@@ -7,7 +7,15 @@ https://github.com/user-attachments/assets/7629b9d4-9ed8-4c4f-a1d5-69d823e0c923
 
 See other videos and screenshots [here](https://github.com/msobczyk-x/video-player-example/tree/main/docs)
 
+## Requirements
+Also there is required API_KEY for YouTube API usage.
+Link with documentation to create one: [link](https://developers.google.com/youtube/v3/docs?hl=pl)
 ## Get started
+0. Create .env file from .env.example and add YouTube API key
+
+```bash
+cp .env.example .env
+```
 
 1. Install dependencies
 
